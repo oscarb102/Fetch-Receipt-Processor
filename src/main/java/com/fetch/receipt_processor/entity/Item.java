@@ -2,9 +2,9 @@ package com.fetch.receipt_processor.entity;
 
 public class Item {
     final String shortDescription;
-    final String price;
+    final double price;
 
-    public Item(String shortDescription, String price) {
+    public Item(String shortDescription, double price) {
         this.shortDescription = shortDescription;
         this.price = price;
     }
@@ -13,7 +13,7 @@ public class Item {
         return this.shortDescription;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 }
