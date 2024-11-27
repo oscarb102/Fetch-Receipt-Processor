@@ -33,10 +33,11 @@ public class ReceiptController {
         ReceiptManager receiptManager = ReceiptManager.getInstance();
 
         String id = IdGeneratorUtils.createId();
+        // TODO: process Receipt object, throw 400 status
         receiptManager.addReceipt(id, receipt);
 
         Map<String, String> response = Map.of("id", id);
-        return new ResponseEntity<Map<String, String>>(response, HttpStatus.CREATED);
+        return new ResponseEntity<Map<String, String>>(response, HttpStatus.OK);
     }
 
     @GetMapping
@@ -45,7 +46,7 @@ public class ReceiptController {
         ReceiptManager receiptManager = ReceiptManager.getInstance();
 
         if (!receiptManager.getReceipts().containsKey(receiptId)) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
         int points = PointsUtils.getPoints(receiptManager.getReceipts().get(receiptId));
