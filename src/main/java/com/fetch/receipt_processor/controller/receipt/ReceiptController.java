@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fetch.receipt_processor.service.ReceiptManager;
 import com.fetch.receipt_processor.utils.IdGeneratorUtils;
 import com.fetch.receipt_processor.utils.PointsUtils;
+import com.fetch.receipt_processor.utils.ValidateUtils;
 
 import java.util.Map;
 import com.fetch.receipt_processor.entity.Receipt;
@@ -32,8 +33,12 @@ public class ReceiptController {
     public ResponseEntity<Map<String, String>> addReceipt(@RequestBody Receipt receipt) {
         ReceiptManager receiptManager = ReceiptManager.getInstance();
 
+        boolean validReceipt = ValidateUtils.validateReceipt(receipt);
+        if (!validReceipt) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
         String id = IdGeneratorUtils.createId();
-        // TODO: process Receipt object, throw 400 status
         receiptManager.addReceipt(id, receipt);
 
         Map<String, String> response = Map.of("id", id);
