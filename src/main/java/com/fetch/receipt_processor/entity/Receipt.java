@@ -1,46 +1,35 @@
 package com.fetch.receipt_processor.entity;
 
-import java.util.Date;
 import java.util.List;
 
 public class Receipt {
     final String retailer;
-    final Date purchaseDate;
-    final Date purchaseTime;
-    final double total;
+    final String purchaseDate;
+    final String purchaseTime;
+    final String total;
     final List<Item> items;
 
-    public Receipt(String retailer, Date purchaseDate, Date purchaseTime, List<Item> items) {
+    public Receipt(String retailer, String purchaseDate, String purchaseTime, String total, List<Item> items) {
         this.retailer = retailer;
         this.purchaseDate = purchaseDate;
         this.purchaseTime = purchaseTime;
         this.items = items;
-        this.total = setTotal(items);
-    }
-
-    private double setTotal(List<Item> items) {
-        double res = 0;
-
-        for (Item i: items) {
-            res += i.price;
-        }
-
-        return res;
+        this.total = total;
     }
 
     public String getRetailer() {
         return retailer;
     }
 
-    public Date getPurchaseDate() {
+    public String getPurchaseDate() {
         return purchaseDate;
     }
 
-    public Date getPurchaseTime() {
+    public String getPurchaseTime() {
         return purchaseTime;
     }
 
-    public double getTotal() {
+    public String getTotal() {
         return total;
     }
 
