@@ -18,12 +18,10 @@ public class IdGeneratorUtils {
         return generatedId;
     }
 
-    // { "id": "7fb1377b-b223-49d9-a31a-5a02701dd310" }
     private static String generateId() {
         StringBuilder res = new StringBuilder();
         Random random = new Random();
 
-        // 36 characters
         for (int i = 0; i < idLength; i++) {
             res.append(chars[random.nextInt(chars.length)]);
         }
