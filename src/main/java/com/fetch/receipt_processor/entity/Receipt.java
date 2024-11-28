@@ -2,6 +2,11 @@ package com.fetch.receipt_processor.entity;
 
 import java.util.List;
 
+/**
+ * Represents a Receipt object
+ * 
+ * @author Oscar Bartolo
+ */
 public class Receipt {
     final String retailer;
     final String purchaseDate;

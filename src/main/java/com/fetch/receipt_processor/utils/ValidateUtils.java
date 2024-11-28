@@ -11,8 +11,17 @@ import java.util.regex.Pattern;
 import com.fetch.receipt_processor.entity.Item;
 import com.fetch.receipt_processor.entity.Receipt;
 
+/**
+ * Represents a utility class to validate Receipts.
+ */
 public class ValidateUtils {
     
+    /**
+     * Validate if proved receipt payload is valid.
+     * 
+     * @param receipt The receipt object provided by the payload
+     * @return True if receipt is valid. Otherwise, false.
+     */
     public static boolean validateReceipt(Receipt receipt) {
         if (receipt == null) {
             return false;
@@ -30,6 +39,12 @@ public class ValidateUtils {
         return true;
     }
 
+    /**
+     * Validate the Retailer string.
+     * 
+     * @param retailer The retailer string
+     * @return True if retailer is valid. Otherwise, false.
+     */
     private static boolean validRetailer(String retailer) {
         if (retailer == null) {
             return false;
@@ -38,6 +53,12 @@ public class ValidateUtils {
         return Pattern.matches("^[\\w\\s\\-\\&]+$", retailer);
     }
 
+    /**
+     * Validate the Purchase Date string.
+     * 
+     * @param date The date string
+     * @return True if the date string is valid. Otherwise, false.
+     */
     private static boolean validPurchaseDate(String date) {
         if (date == null) {
             return false;
@@ -55,6 +76,12 @@ public class ValidateUtils {
         return true;
     }
 
+    /**
+     * Validate the Purchase Time string.
+     * 
+     * @param time The time string
+     * @return True if the time string is valid. Otherwise, false.
+     */
     private static boolean validPurchaseTime(String time) {
         if (time == null) {
             return false;
@@ -71,6 +98,12 @@ public class ValidateUtils {
         return true;
     }
 
+    /**
+     * Validates the Items objects.
+     * 
+     * @param items The list of Items
+     * @return True if all items are valid. Otherwise, false.
+     */
     private static boolean validateItems(List<Item> items) {
         if (items == null || items.size() == 0) {
             return false;
@@ -87,6 +120,12 @@ public class ValidateUtils {
         return true;
     }
 
+    /**
+     * Validates the Short Description.
+     * 
+     * @param shortDesc Item Short description
+     * @return True if the Item short description is valid. Otherwise, false.
+     */
     private static boolean validateItemShortDesc(String shortDesc) {
         if (shortDesc == null) {
             return false;
@@ -95,6 +134,12 @@ public class ValidateUtils {
         return Pattern.matches("^[\\w\\s\\-]+$", shortDesc);
     }
 
+    /**
+     * Validates the Item Price.
+     * 
+     * @param price Item Price
+     * @return True if the Item price is valid. Otherwise, false.
+     */
     private static boolean validateItemPrice(String price) {
         if (price == null) {
             return false;
@@ -103,6 +148,12 @@ public class ValidateUtils {
         return Pattern.matches("^\\d+\\.\\d{2}$", price);
     }
 
+    /**
+     * Validates the Total string
+     * 
+     * @param total The total string
+     * @return True if the total is valid. Otherwise, false.
+     */
     private static boolean validateTotal(String total) {
         if (total == null) {
             return false;

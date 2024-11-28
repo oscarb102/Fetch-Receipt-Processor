@@ -4,6 +4,14 @@ import java.util.Map;
 import java.util.HashMap;
 import com.fetch.receipt_processor.entity.Receipt;
 
+/**
+ * Represents a ReceiptManager instance
+ * 
+ * <p>
+ * This class uses the Singleton design pattern since 
+ * there should only exist one map of Receipt entries.
+ * </p>
+ */
 public class ReceiptManager {
     private static ReceiptManager instance;
     private Map<String, Receipt> receipts;

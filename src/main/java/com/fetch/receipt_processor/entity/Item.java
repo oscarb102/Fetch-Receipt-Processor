@@ -1,5 +1,10 @@
 package com.fetch.receipt_processor.entity;
 
+/**
+ * Represents an Item object that is part of a Receipt
+ * 
+ * @author Oscar Bartolo
+ */
 public class Item {
     final String shortDescription;
     final String price;
